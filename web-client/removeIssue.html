@@ -1,57 +1,166 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Remove Issue</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Remove Issue / Comments - Issue Tracking System</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    />
     <link rel="stylesheet" href="styles.css" />
+
     <script src="commentScripts.js"></script>
     <script src="issueScripts.js"></script>
     <script src="searchScripts.js"></script>
     <script src="userScripts.js"></script>
+
     <style>
+      /* Keeping custom styles consistent with your edit page layout */
       .comment {
         display: flex;
         flex-direction: column;
         gap: 4px;
-        border: 1px solid #ccc;
-        padding: 10px;
+        border: 1px solid #dee2e6;
+        padding: 12px;
         border-radius: 6px;
-        margin: 8px 0;
-        background: #f7f7f7;
-        width: 400px;
+        margin: 10px 0;
+        background: #f8f9fa;
+        max-width: 100%;
       }
 
       .comment-header {
         display: flex;
         justify-content: space-between;
-        font-size: 14px;
-        color: gray;
+        font-size: 13px;
+        color: #6c757d;
+        font-weight: 500;
       }
+
       .comment-text {
         font-size: 15px;
+        color: #212529;
       }
     </style>
   </head>
 
-  <body>
-    <h1>Edit Issue</h1>
-    <fieldset>
-      <!-- TODO: Modify these to be inputs and format properly, with starting values of the Issue called -->
-      <!-- This is just a basic Issue Layout Template -->
-      <h3 id="issue">#1 [Issue Title]</h3>
-      <span id="priority">Priority: [Priority]</span>
-      <span id="status">Status: [Status]</span>
-      <span id="user">Assigned To: [User]</span>
-      <h4>Description</h4>
-      <p id="description">[1st comment]</p>
-      <h4>Comments</h4>
-      <p id="comments">[Rest of the Comments]</p>
+  <body class="bg-light py-5">
+    <div class="container">
+      <div class="mb-4">
+        <a
+          href="../ITS-Client.html"
+          class="text-decoration-none text-secondary small fw-semibold"
+        >
+          ← Back to Home
+        </a>
+      </div>
 
-      <h3>Remove Comment</h3>
-      <textarea id="commentId"></textarea><br />
-      <button onclick="deleteComment(0)">Add Comment</button>
-      <p id="addResult"></p>
-      <br />
-    </fieldset>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div
+            class="alert alert-warning border-0 shadow-sm d-flex align-items-center mb-4"
+            role="alert"
+          >
+            <div class="fw-medium">
+              ⚠️ <strong>Administrative Action:</strong> You are viewing the
+              deletion panel for this ticket record.
+            </div>
+          </div>
+
+          <div class="card shadow-sm border-0 rounded-3 mb-4">
+            <div class="card-body p-4">
+              <h1 class="h3 fw-bold text-dark mb-3" id="issue">
+                #1 [Issue Title]
+              </h1>
+
+              <div
+                class="d-flex flex-wrap gap-2 align-items-center border-bottom pb-3 mb-4"
+              >
+                <span
+                  class="badge bg-secondary rounded-pill px-3 py-2 fs-7"
+                  id="priority"
+                  >Priority: [Priority]</span
+                >
+                <span
+                  class="badge bg-secondary rounded-pill px-3 py-2 fs-7"
+                  id="status"
+                  >Status: [Status]</span
+                >
+                <span
+                  class="badge bg-secondary rounded-pill px-3 py-2 fs-7"
+                  id="user"
+                  >Assigned To: [User]</span
+                >
+              </div>
+
+              <div class="mb-4">
+                <h4 class="h6 text-uppercase fw-bold text-secondary mb-2">
+                  Description
+                </h4>
+                <div
+                  class="p-3 bg-white border rounded-3 text-dark"
+                  id="description"
+                >
+                  [1st comment]
+                </div>
+              </div>
+
+              <div class="mb-2">
+                <h4 class="h6 text-uppercase fw-bold text-secondary mb-2">
+                  Active Logs & Comments
+                </h4>
+                <div
+                  class="p-3 bg-light border rounded-3 text-muted"
+                  id="comments"
+                >
+                  [Rest of the Comments]
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="card shadow-sm border-danger border-top border-3 rounded-3"
+          >
+            <div class="card-body p-4">
+              <h3 class="h5 fw-bold text-danger mb-1">Remove Comment Record</h3>
+              <p class="text-muted small mb-3">
+                Provide the targeted comment index/ID string to purge it from
+                the database execution log.
+              </p>
+
+              <div class="mb-3">
+                <label
+                  for="commentId"
+                  class="form-label small fw-bold text-uppercase text-secondary"
+                  >Target Comment ID</label
+                >
+                <textarea
+                  class="form-control font-monospace"
+                  id="commentId"
+                  rows="2"
+                  placeholder="Enter target ID hash or index integer..."
+                ></textarea>
+              </div>
+
+              <div
+                class="d-flex align-items-center justify-content-between flex-wrap gap-2"
+              >
+                <button
+                  class="btn btn-danger fw-semibold px-4"
+                  onclick="deleteComment(0)"
+                >
+                  Delete Targeted Comment
+                </button>
+                <p
+                  class="small mb-0 fw-semibold text-danger"
+                  id="addResult"
+                ></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

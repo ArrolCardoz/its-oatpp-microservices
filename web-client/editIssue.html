@@ -1,75 +1,172 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Issue - Issue Tracking System</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <title>Edit Issue</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script src="commentScripts.js"></script>
-  <script src="issueScripts.js"></script>
-  <script src="searchScripts.js"></script>
-  <script src="searchScripts.js"></script>
-  <script src="userScripts.js"></script>
-  <style>
-    .comment {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      border: 1px solid #ccc;
-      padding: 10px;
-      border-radius: 6px;
-      margin: 8px 0;
-      background: #f7f7f7;
-      width: 400px;
-    }
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
 
-    .comment-header {
-      display: flex;
-      justify-content: space-between;
-      font-size: 14px;
-      color: gray;
-    }
+    <script src="commentScripts.js"></script>
+    <script src="issueScripts.js"></script>
+    <script src="searchScripts.js"></script>
+    <script src="userScripts.js"></script>
 
-    .comment-text {
-      font-size: 15px;
-    }
-  </style>
-</head>
+    <style>
+      /* Keeping your custom comment styles but making them stretch nicely in the card layout */
+      .comment {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        border: 1px solid #dee2e6;
+        padding: 12px;
+        border-radius: 6px;
+        margin: 10px 0;
+        background: #f8f9fa;
+        max-width: 100%;
+      }
 
-<body>
+      .comment-header {
+        display: flex;
+        justify-content: space-between;
+        font-size: 13px;
+        color: #6c757d;
+        font-weight: 500;
+      }
 
-  <body onload="getIssueDetails()">
-    <h1>Edit Issue</h1>
-    <form onsubmit="updateIssue(event)" method="put">
-      <fieldset>
-        <label for="title"><b>Issue Title:</b></label>
-        <input type="text" id="title" required><i>*Required</i><br><br>
-        <label for="priority"><b>Priority:</b></label>
-        <select id="priority" name="priority">
-          <option id="0" value=0></option>
-          <option id="1" value=1>Low</option>
-          <option id="2" value=2>Medium</option>
-          <option id="3" value=3>High</option>
-        </select><br><br>
-        <label for="status"><b>Status:</b></label>
-        <!-- <input type="text" id="status"><br><br> -->
-        <input list="statuses" id="status">
-        <datalist id="statuses">
-          <option value="Fixed">
-          <option value="Won't Fix">
-          <option value="Assigned">
-          <option value="In Progress">
-        </datalist><br><br>
-        <label for="assign"><b>Assign To:</b></label>
-        <select id="assign" name="assign">
-        </select><br><br>
-        <label for="comments"><b>Comments:</b></label><br>
-        <div id="comments"></div><br>
-        <button type="button" onclick="addComment()">Add a Comment</button><br><br>
-        <input type="submit" value="Update Issue">
-        <button type="button" onclick="window.location.href='../ITS-Client.html'">Back</button>
-      </fieldset>
-    </form>
+      .comment-text {
+        font-size: 15px;
+        color: #212529;
+      }
+    </style>
+  </head>
+
+  <body class="bg-light py-5" onload="getIssueDetails()">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="card shadow-sm border-0 rounded-3">
+            <div class="card-body p-4 p-md-5">
+              <h1 class="card-title h3 fw-bold text-dark mb-4">
+                Edit Issue Settings
+              </h1>
+
+              <form onsubmit="updateIssue(event)" method="put">
+                <div class="mb-3">
+                  <div
+                    class="d-flex justify-content-between align-items-center mb-1"
+                  >
+                    <label
+                      for="title"
+                      class="form-label small fw-bold text-uppercase text-secondary mb-0"
+                      >Issue Title</label
+                    >
+                    <span class="text-danger small font-monospace"
+                      >*Required</span
+                    >
+                  </div>
+                  <input
+                    type="text"
+                    id="title"
+                    class="form-control form-control-lg"
+                    placeholder="Brief summary of the issue"
+                    required
+                  />
+                </div>
+
+                <div class="row g-3 mb-4">
+                  <div class="col-md-4">
+                    <label
+                      for="priority"
+                      class="form-label small fw-bold text-uppercase text-secondary"
+                      >Priority</label
+                    >
+                    <select id="priority" name="priority" class="form-select">
+                      <option id="0" value="0"></option>
+                      <option id="1" value="1">Low</option>
+                      <option id="2" value="2">Medium</option>
+                      <option id="3" value="3">High</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-4">
+                    <label
+                      for="status"
+                      class="form-label small fw-bold text-uppercase text-secondary"
+                      >Status</label
+                    >
+                    <input
+                      list="statuses"
+                      id="status"
+                      class="form-select"
+                      placeholder="Select or type..."
+                    />
+                    <datalist id="statuses">
+                      <option value="Fixed"></option>
+                      <option value="Won't Fix"></option>
+                      <option value="Assigned"></option>
+                      <option value="In Progress"></option>
+                    </datalist>
+                  </div>
+
+                  <div class="col-md-4">
+                    <label
+                      for="assign"
+                      class="form-label small fw-bold text-uppercase text-secondary"
+                      >Assign To</label
+                    >
+                    <select
+                      id="assign"
+                      name="assign"
+                      class="form-select"
+                    ></select>
+                  </div>
+                </div>
+
+                <div class="border-top pt-4 mb-4">
+                  <div
+                    class="d-flex justify-content-between align-items-center mb-2"
+                  >
+                    <h4 class="h6 text-uppercase fw-bold text-secondary mb-0">
+                      Discussion Log
+                    </h4>
+                    <button
+                      type="button"
+                      class="btn btn-sm btn-outline-primary fw-medium"
+                      onclick="addComment()"
+                    >
+                      + Add a Comment
+                    </button>
+                  </div>
+
+                  <div id="comments" class="mt-2"></div>
+                </div>
+
+                <div
+                  class="d-flex flex-wrap gap-2 pt-3 border-top justify-content-between"
+                >
+                  <button
+                    type="button"
+                    class="btn btn-light px-4 fw-semibold border text-secondary"
+                    onclick="window.location.href = '../ITS-Client.html'"
+                  >
+                    Cancel
+                  </button>
+                  <input
+                    type="submit"
+                    class="btn btn-success px-5 fw-semibold"
+                    value="Update Issue"
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
-
 </html>

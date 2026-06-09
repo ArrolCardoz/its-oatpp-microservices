@@ -1,32 +1,145 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Add User</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add User - Issue Tracking System</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    />
     <link rel="stylesheet" href="styles.css" />
+
     <script src="commentScripts.js"></script>
     <script src="issueScripts.js"></script>
-    <script src="searchScripts.js"></script>
     <script src="searchScripts.js"></script>
     <script src="userScripts.js"></script>
   </head>
 
-<body>
-    <a href="../ITS-Client.html">Home</a>
-    <h1>Add User</h1>
-    * requires values
-    <form onsubmit="createUser(event)">
-        <h3>Name*</h3>
-        <input type="text" name="name" id="name"><br><br>
-        <h3>Email</h3>
-        <input type="text" name="email" id="email"><br><br>
-        <h3>Role</h3>
-        <input type="radio" name="role" value="0" id="ADMIN">Administrator<br>
-        <input type="radio" name="role" value="1" id="DEVELOPER">Developer<br>
-        <input type="radio" name="role" value="2"id="TESTER">Tester<br>
-        <input type="radio" name="role" value="3"id="VIEWER">Viewer<br><br>
-        <input type="submit" value="Create User">
-    </form>
-    <!-- Submit button should call createUser() -->
+  <body class="bg-light py-5">
+    <div class="container">
+      <div class="mb-4">
+        <a
+          href="../ITS-Client.html"
+          class="text-decoration-none text-secondary small fw-semibold"
+        >
+          ← Back to Home
+        </a>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+          <div class="card shadow-sm border-0 rounded-3">
+            <div class="card-body p-4">
+              <h1 class="card-title h3 mb-1 fw-bold text-dark">Add User</h1>
+              <p class="text-muted small mb-4">* Requires values</p>
+
+              <form onsubmit="createUser(event)">
+                <div class="mb-3">
+                  <label
+                    for="name"
+                    class="form-label small fw-bold text-uppercase text-secondary"
+                    >Name *</label
+                  >
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    class="form-control"
+                    placeholder="Enter full name"
+                    required
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label
+                    for="email"
+                    class="form-label small fw-bold text-uppercase text-secondary"
+                    >Email</label
+                  >
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    class="form-control"
+                    placeholder="name@example.com"
+                  />
+                </div>
+
+                <div class="mb-4">
+                  <label
+                    class="form-label small fw-bold text-uppercase text-secondary d-block"
+                    >Role</label
+                  >
+
+                  <div class="form-check mb-2">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="role"
+                      value="0"
+                      id="ADMIN"
+                      checked
+                    />
+                    <label class="form-check-label text-dark" for="ADMIN"
+                      >Administrator</label
+                    >
+                  </div>
+
+                  <div class="form-check mb-2">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="role"
+                      value="1"
+                      id="DEVELOPER"
+                    />
+                    <label class="form-check-label text-dark" for="DEVELOPER"
+                      >Developer</label
+                    >
+                  </div>
+
+                  <div class="form-check mb-2">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="role"
+                      value="2"
+                      id="TESTER"
+                    />
+                    <label class="form-check-label text-dark" for="TESTER"
+                      >Tester</label
+                    >
+                  </div>
+
+                  <div class="form-check mb-0">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="role"
+                      value="3"
+                      id="VIEWER"
+                    />
+                    <label class="form-check-label text-dark" for="VIEWER"
+                      >Viewer</label
+                    >
+                  </div>
+                </div>
+
+                <div class="d-grid">
+                  <button
+                    type="submit"
+                    class="btn btn-primary fw-semibold py-2"
+                  >
+                    Create User
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
