@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>ITS Web Client</title>
+    <link rel="stylesheet" href="./web-client/styles.css">
+    <script src="./web-client/commentScripts.js"></script>
+    <script src="./web-client/issueScripts.js"></script>
+    <script src="./web-client/searchScripts.js"></script>
+    <script src="./web-client/userScripts.js"></script>
+</head>
+
+<body onload="getAllIssues()">
+    <h1 id="top">Issue Tracking Service</h1>
+    <fieldset>
+        <label>Search By:</label>
+        <select name="searchBy" id="searchBy">
+            <option value="issueID">Issue ID</option>
+            <option value="userID">User ID</option>
+            <option value="status">Status</option>
+            <option value="priority">Priority</option>
+        </select> <br>
+        <input id="searchValue"><button type="button" onclick="search()">Search</button><br><br>
+        
+        <button type="button" onclick="getAllIssues()">View All Issues</button>
+        <button type="button" onclick="getAllUsers()">View All Users</button><br><br>
+        <button type="button" onclick="createIssue()">Create Issue</button><br><br>
+        <form action="./web-client/addUser.html">
+            <input type="submit" value="Create User">
+        </form>
+    </fieldset>
+    <h2 id="header"></h2>
+    <div id="result"></div><br>
+    <div id="totop"><a href="#top">Back to Top</a></div>
+</body>
+
+</html>

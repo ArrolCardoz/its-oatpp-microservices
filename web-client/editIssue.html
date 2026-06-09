@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Edit Issue</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="commentScripts.js"></script>
+  <script src="issueScripts.js"></script>
+  <script src="searchScripts.js"></script>
+  <script src="searchScripts.js"></script>
+  <script src="userScripts.js"></script>
+  <style>
+    .comment {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 6px;
+      margin: 8px 0;
+      background: #f7f7f7;
+      width: 400px;
+    }
+
+    .comment-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      color: gray;
+    }
+
+    .comment-text {
+      font-size: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <body onload="getIssueDetails()">
+    <h1>Edit Issue</h1>
+    <form onsubmit="updateIssue(event)" method="put">
+      <fieldset>
+        <label for="title"><b>Issue Title:</b></label>
+        <input type="text" id="title" required><i>*Required</i><br><br>
+        <label for="priority"><b>Priority:</b></label>
+        <select id="priority" name="priority">
+          <option id="0" value=0></option>
+          <option id="1" value=1>Low</option>
+          <option id="2" value=2>Medium</option>
+          <option id="3" value=3>High</option>
+        </select><br><br>
+        <label for="status"><b>Status:</b></label>
+        <!-- <input type="text" id="status"><br><br> -->
+        <input list="statuses" id="status">
+        <datalist id="statuses">
+          <option value="Fixed">
+          <option value="Won't Fix">
+          <option value="Assigned">
+          <option value="In Progress">
+        </datalist><br><br>
+        <label for="assign"><b>Assign To:</b></label>
+        <select id="assign" name="assign">
+        </select><br><br>
+        <label for="comments"><b>Comments:</b></label><br>
+        <div id="comments"></div><br>
+        <button type="button" onclick="addComment()">Add a Comment</button><br><br>
+        <input type="submit" value="Update Issue">
+        <button type="button" onclick="window.location.href='../ITS-Client.html'">Back</button>
+      </fieldset>
+    </form>
+  </body>
+
+</html>

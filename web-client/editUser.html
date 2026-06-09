@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Edit User</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="commentScripts.js"></script>
+    <script src="issueScripts.js"></script>
+    <script src="searchScripts.js"></script>
+    <script src="searchScripts.js"></script>
+    <script src="userScripts.js"></script>
+  </head>
+
+<body>
+    <a href="../ITS-Client.html">Home</a>
+    <h1>Edit User</h1>
+    <form onsubmit="updateUser(event)">
+        <h3>Name</h3>
+        <input type="text" name="name" id="name"><br><br>
+        <h3>Email</h3>
+        <input type="text" name="email" id="email"><br><br>
+        <h3>Role</h3>
+        <input type="radio" name="role" value="0" id="ADMIN">Administrator<br>
+        <input type="radio" name="role" value="1" id="DEVELOPER">Developer<br>
+        <input type="radio" name="role" value="2" id="TESTER">Tester<br>
+        <input type="radio" name="role" value="3" id="VIEWER">Viewer<br><br>
+        <input type="submit" value="Update User">
+    </form>
+</body>
+
+</html>

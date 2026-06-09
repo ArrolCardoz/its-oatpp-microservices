@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Add Issue</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="commentScripts.js"></script>
+    <script src="issueScripts.js"></script>
+    <script src="searchScripts.js"></script>
+    <script src="userScripts.js"></script>
+  </head>
+
+  <body>
+    <h1>Add Issue</h1>
+    <fieldset>
+      <!-- TODO: Modify these to be inputs and format properly -->
+      <!-- This is just a basic Issue Layout Template -->
+      <h3 id="issue">#1 [Issue Title]</h3>
+      <span id="priority">Priority: [Priority]</span>
+      <span id="status">Status: [Status]</span>
+      <span id="user">Assigned To: [User]</span>
+      <h4>Description</h4>
+      <p id="description">[1st comment]</p>
+      <h4>Comments</h4>
+      <p id="comments">[Rest of the Comments]</p>
+
+      <h3>Add Comment</h3>
+
+      Comment: <br />
+      <textarea id="comment"></textarea><br />
+      <button onclick="addCommentsByIssue(0)">Add Comment</button>
+      <p id="addResult"></p>
+      <br />
+    </fieldset>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+[
+  {
+    "id": 0,
+    "name": "Unassigned",
+    "email": "NotSet",
+    "role": 3,
+    "issues": []
+  },
+  {
+    "id": 1,
+    "name": "Group C",
+    "email": "group-c@uleth.ca",
+    "role": 0,
+    "issues": []
+  },
+  {
+    "id": 2,
+    "name": "Dr. Anvik",
+    "email": "john.anvik@uleth.ca",
+    "role": 1,
+    "issues": [
+      1
+    ]
+  }
+]
